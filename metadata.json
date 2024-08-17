@@ -1,0 +1,8 @@
+{
+	"name": "New Tab",
+	"author": "free-bots",
+	"description": "Opens a new tab for each artice",
+	"version": 1.0,
+	"entrypoint": "NewTab",
+	"type": "user"
+}
