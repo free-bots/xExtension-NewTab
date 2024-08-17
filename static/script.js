@@ -1,12 +1,10 @@
 (function () {
-    const openUrls = () => {    
+    const openUrls = () => {
         const pathname = window.location.pathname;
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         urlParams.append('c', 'item');
-        urlParams.append('a','current');
-
-        urlParams.ge
+        urlParams.append('a', 'current');
 
         fetch(`${pathname}?${urlParams.toString()}`)
             .then(response => response.json())
@@ -15,8 +13,17 @@
             }));
     };
 
-    document.addEventListener("DOMContentLoaded", (event) => {
+    const registerButtonClick = () => {
         const button = document.getElementById('newTab');
         button.addEventListener('click', () => openUrls());
+        console.log('registered');
+    }
+
+    if (document.readyState !== "loading") {
+        registerButtonClick();
+        return;
+    }
+    document.addEventListener("DOMContentLoaded", (event) => {
+        registerButtonClick();
     });
 }());
